@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Win-Tech UA | Windows Technologies UA</title>
+    <style>
+        :root {
+            --primary-blue: #0057b7;
+            --secondary-yellow: #ffd700;
+            --white: #fff;
+            --gray: #f0f0f0;
+            --dark-gray: #333;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background: var(--gray);
+            color: var(--dark-gray);
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-yellow));
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            animation: fadeIn 1.5s ease-in;
+        }
+        header h1 {
+            font-size: 50px;
+            margin: 0;
+        }
+        header p {
+            font-size: 22px;
+            margin: 10px 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: var(--primary-blue);
+            padding: 15px;
+        }
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 20px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: var(--secondary-yellow);
+        }
+        .container, .bio-section, .form-container, .install-section, .video-section, .blog-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background: var(--white);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 10px;
+        }
+        .install-section h2, .bio-section h2, .form-container h2, .video-section h2, .blog-section h2 {
+            color: var(--primary-blue);
+            text-align: center;
+        }
+        .step {
+            display: none;
+            text-align: center;
+        }
+        .step.active {
+            display: block;
+        }
+        .btn {
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: var(--secondary-yellow);
+            color: var(--dark-gray);
+        }
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .form-container input, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid var(--gray);
+            border-radius: 5px;
+        }
+        .video-wrapper {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .video-wrapper iframe {
+            width: 30%;
+            height: 315px;
+            margin: 10px;
+        }
+        @media (max-width: 768px) {
+            .video-wrapper iframe {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <link rel="stylesheet" href="style.css">
+
+<header id="home">
+    <h1>Win-Tech UA</h1>
+    <p>Windows Technologies UA</p>
+</header>
+
+<nav>
+    <a href="Head.html">Home</a>
+    <a href="album.html">Album</a>
+    <a href="#contact">Contact</a>
+    <a href="javascript:void(0);" onclick="openPopup()">Blog</a> <!-- Updated button -->
+</nav>
+
+
+<div id="video-gallery" class="video-section">
+    <h2>Video Gallery</h2>
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+
+<div class="install-section">
+    <!-- Step 1 -->
+    <div id="step1" class="step active">
+        <h2>Where do you plan to install?</h2>
+        <button class="btn" onclick="nextStep(2, 'Apartment')">Apartment</button>
+        <button class="btn" onclick="nextStep(2, 'Private House')">Private House</button>
+        <button class="btn" onclick="nextStep(2, 'Commercial Building')">Commercial Building</button>
+    </div>
+
+    <!-- Step 2 -->
+    <div id="step2" class="step">
+        <h2>Select the type of structure</h2>
+        <button class="btn" onclick="nextStep(3, 'Windows')">Windows</button>
+        <button class="btn" onclick="nextStep(3, 'Doors')">Doors</button>
+        <button class="btn" onclick="nextStep(3, 'Sliding Systems')">Sliding Systems</button>
+        <button class="btn back-btn" onclick="goBack(1)">Back</button>
+    </div>
+
+    <!-- Step 3 -->
+    <div id="step3" class="step">
+        <h2>Choose the material</h2>
+        <button class="btn" onclick="showForm('Metal-plastic')">Metal-plastic</button>
+        <button class="btn" onclick="showForm('Wood')">Wood</button>
+        <button class="btn" onclick="showForm('Aluminum')">Aluminum</button>
+        <button class="btn" onclick="showForm('Consultation Required')">Consultation Required</button>
+        <button class="btn back-btn" onclick="goBack(2)">Back</button>
+    </div>
+</div>
+
+<div id="contact" class="form-container">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/mldjgqpz" method="POST">
+        <label>Your name:</label>
+        <input type="text" name="name" required>
+        <label>Your phone:</label>
+        <input type="tel" name="phone" required>
+        <label>Your email:</label>
+        <input type="email" name="email" required>
+        <label>Your message:</label>
+        <textarea name="message" required></textarea>
+        <button type="submit" class="btn">Submit</button>
+        <input type="hidden" name="_language" value="en" />
+    </form>
+</div>
+
+<!-- Pop-up Window -->
+<div id="blog-popup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h2>About Us</h2>
+        <p>Subsidiary enterprise <strong>"Windows Technologies UA"</strong> is a modern, reputable company that cooperates with the large company <strong>EKRAN</strong> which is one of the largest Ukrainian companies in the field of production of transparent structures in the west of Ukraine.</p>
+        <p>It was we who manufactured the first window in Ukraine from the <strong>SALAMANDER</strong> profile in 1999. Yes, they were the first company to offer Ukrainian consumers products from the German "Salamander" systems, and since then they have remained a constant partner of the "SIP" company in Ukraine and one of the largest processors of "Salamander" profile systems in the country. Back then, in 1999, they focused on quality and this was a qualitative start for further successful work and our rapid development.</p>
+        <p>In 2010, they successfully launched the Ukrainian-made <strong>EKRAN</strong> profile on the market. If you are looking for a national product of European quality, then the "Window Technologies UA" profile system is just for you. These are high-quality and economical systems at a favorable </p>
+    </div>
+</div>
+
+<script>
+    // Smooth scrolling effect
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 50,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
+<script>
+    let currentStep = 1;
+    const selections = {};
+
+    // ✅ Function to move to the next step
+    function nextStep(step, choice) {
+        selections[`step${currentStep}`] = choice;
+
+        // Hide the current step and show the next one
+        document.getElementById(`step${currentStep}`).classList.remove('active');
+        document.getElementById(`step${step}`).classList.add('active');
+
+        currentStep = step;
+    }
+
+    // 🔙 Function to go back to the previous step
+    function goBack(step) {
+        document.getElementById(`step${currentStep}`).classList.remove('active');
+        document.getElementById(`step${step}`).classList.add('active');
+        currentStep = step;
+    }
+
+    // ✅ Function to show the form at the end
+    function showForm(finalChoice) {
+        selections['finalChoice'] = finalChoice;
+
+        // Hide all steps and show the form
+        document.querySelector('.install-section').style.display = 'none';
+        document.getElementById('contact-form').style.display = 'block';
+    }
+
+    // 🔥 Smooth scrolling for navigation buttons
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 50,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // ✅ Ensure the steps reset when navigating
+    window.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.step').forEach((step, index) => {
+            step.classList.remove('active');
+            if (index === 0) {
+                step.classList.add('active');
+            }
+        });
+    });
+</script>
+<script>
+    // ✅ Function to open the pop-up
+    function openPopup() {
+        document.getElementById('blog-popup').style.display = 'block';
+    }
+
+    // ❌ Function to close the pop-up
+    function closePopup() {
+        document.getElementById('blog-popup').style.display = 'none';
+    }
+
+    // Close pop-up when clicking outside the content
+    window.onclick = function(event) {
+        const popup = document.getElementById('blog-popup');
+        if (event.target === popup) {
+            popup.style.display = 'none';
+        }
+    }
+</script>
+<footer class="footer">
+    <p>&copy; 2025 Windows Technologies UA. All rights reserved.</p>
+</footer>
+</body>
+</html>

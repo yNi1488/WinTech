@@ -1,0 +1,260 @@
+/* 🌟 GENERAL STYLES */
+:root {
+    --primary-blue: #0057b7;
+    --secondary-yellow: #ffd700;
+    --white: #fff;
+    --gray: #f0f0f0;
+    --dark-gray: #333;
+    --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --heavy-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background: linear-gradient(135deg, var(--gray), var(--white));
+    color: var(--dark-gray);
+    min-height: 100vh;
+}
+
+/* 🌟 HEADER STYLING */
+header {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-yellow));
+    color: var(--white);
+    text-align: center;
+    padding: 80px 20px;
+    box-shadow: var(--heavy-shadow);
+    animation: fadeIn 1.5s ease-in;
+}
+
+header h1 {
+    font-size: 55px;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+header p {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+/* 🌟 NAVIGATION */
+nav {
+    display: flex;
+    justify-content: center;
+    background: var(--primary-blue);
+    padding: 15px;
+    box-shadow: var(--light-shadow);
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 25px;
+    transition: 0.3s;
+    font-size: 18px;
+    letter-spacing: 1px;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background: var(--secondary-yellow);
+    color: var(--dark-gray);
+    transform: scale(1.1);
+}
+
+/* 🌟 ALBUM SECTION */
+.album-section {
+    max-width: 1300px;
+    margin: 50px auto;
+    padding: 40px;
+    background: var(--white);
+    box-shadow: var(--heavy-shadow);
+    border-radius: 15px;
+    transition: 0.5s;
+    animation: slideUp 1.2s ease-in-out;
+}
+
+.album-section:hover {
+    transform: translateY(-10px);
+}
+
+.album-section h2 {
+    text-align: center;
+    color: var(--primary-blue);
+    font-size: 40px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* 🌟 PHOTO GRID */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 🌟 PHOTO CARDS */
+.photo-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: var(--light-shadow);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+/* 🌟 HOVER EFFECT */
+.photo-card:hover {
+    transform: scale(1.05);
+    box-shadow: var(--heavy-shadow);
+}
+
+.photo-card:hover img {
+    filter: brightness(0.7) blur(2px);
+}
+
+.photo-card .photo-title {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: var(--white);
+    font-size: 22px;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.photo-card:hover .photo-title {
+    opacity: 1;
+}
+
+/* 🌟 RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+    .photo-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    header h1 {
+        font-size: 40px;
+    }
+
+    nav a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .photo-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 35px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+}
+
+/* 🌟 ANIMATIONS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Lightbox styling */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    overflow: auto;
+    text-align: center;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    margin: 5% auto;
+    display: block;
+}
+
+.lightbox p {
+    color: #fff;
+    font-size: 20px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #f00;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.prev-btn {
+    left: 30px;
+}
+
+.next-btn {
+    right: 30px;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background: #555;
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Win-Tech UA - Photo Library</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background: #f0f8ff;
+        }
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+        header h1 {
+            font-size: 50px;
+            margin: 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            background: #2a5298;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ffcc00;
+        }
+        .album-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #2a5298;
+        }
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+        .photo-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .photo-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .photo-title {
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+            color: #1e3c72;
+            background: #ffcc00;
+        }
+        .photo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+        .footer {
+            background: #2a5298;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+        }
+        @media (max-width: 768px) {
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows Technologies UA - Photo Library</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Win-Tech UA - Photo Library</h1>
+</header>
+
+<nav>
+    <a href="Head.html">Home</a>
+</nav>
+
+<!-- WINDOWS SECTION -->
+<div class="album-section">
+    <h2>Windows</h2>
+    <div class="photo-gallery">
+        <div class="photo-card">
+            <img src="photos/Windows/win1.jpg" alt="Windows 1" data-desc="Elegant double-glazed window with modern insulation features.">
+        </div>
+        <div class="photo-card">
+            <img src="photos/Windows/win2.jpg" alt="Windows 2" data-desc="Classic white-framed window, perfect for homes.">
+        </div>
+        <div class="photo-card">
+            <img src="photos/Windows/win3.jpg" alt="Windows 3" data-desc="Large panoramic window with a scenic view.">
+        </div>
+    </div>
+</div>
+
+<!-- DOORS SECTION -->
+<div class="album-section">
+    <h2>Doors</h2>
+    <div class="photo-gallery">
+        <div class="photo-card">
+            <img src="photos/Doors/door1.jpg" alt="Door 1" data-desc="Stylish wooden door with a matte finish.">
+        </div>
+        <div class="photo-card">
+            <img src="photos/Doors/door2.jpg" alt="Door 2" data-desc="Glass door with elegant metallic frame.">
+        </div>
+        <div class="photo-card">
+            <img src="photos/Doors/door3.jpg" alt="Door 3" data-desc="Solid steel security door with advanced lock.">
+        </div>
+    </div>
+</div>
+
+<!-- CURTAINS SECTION -->
+<div class="album-section">
+    <h2>Curtains</h2>
+    <div class="photo-gallery">
+        <div class="photo-card">
+            <img src="photos/Curtains/curtain1.jpg" alt="Curtain 1" data-desc="Luxury silk curtain in pastel colors.">
+        </div>
+        <div class="photo-card">
+            <img src="photos/Curtains/curtain2.jpg" alt="Curtain 2" data-desc="Blackout curtain for maximum privacy.">
+        </div>
+        <div class="photo-card">
+            <img src="photos/Curtains/curtain3.jpg" alt="Curtain 3" data-desc="Sheer white curtain with elegant lace.">
+        </div>
+    </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+    <span class="close-btn">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+    <p id="lightbox-desc"></p>
+    <button class="prev-btn">&#10094;</button>
+    <button class="next-btn">&#10095;</button>
+</div>
+
+<!-- LINK THE SCRIPT -->
+<script src="script.js"></script>
+
+<footer class="footer">
+    <p>&copy; 2025 Windows Technologies UA. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
